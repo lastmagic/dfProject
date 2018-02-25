@@ -7,7 +7,11 @@ def home(request):
     return render(request, 'switching/home.html',{});
 
 def info(request,serverName, characterName):
-    user = User.objects.get(serverName=serverName, characterName=characterName)
+    try:
+        user = User.objects.get(serverName=serverName, characterName=characterName)
+    except:
+        user = ''
+
     return render(request, 'switching/info.html', {'user':user})
 
 def test(request):
