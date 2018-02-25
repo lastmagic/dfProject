@@ -14,4 +14,4 @@ class User(models.Model):
     characterName = models.CharField(max_length=30)
     serverName = models.CharField(max_length = 10,choices = serverList, default="cain")
     def __str__(self):
-        return "name:"+self.characterName + "server:" + self.serverName
+        return "characterName:"+self.characterName + " serverName:" + self.serverName

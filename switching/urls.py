@@ -3,4 +3,6 @@ from . import views
 app_name = 'switching'
 urlpatterns =[
     url(r'^$', views.home, name='home'),
+    url(r'^info/$', views.test, name='test'),
+    url(r'^info/(?P<serverName>[a-z]+)/(?P<characterName>[^ \t\r\n\v\f]+)/$', views.info),
 ]
