@@ -16,7 +16,7 @@ def extract_item(dataset, name):
 
 def extract_creature(dataset, name):
     rdata = []
-    if dataset['skill']['buff'][name][0] !=  None:
+    if dataset['skill']['buff'][name] !=  None:
         ret = {}
         data = dataset['skill']['buff'][name][0]
         itemId = data['itemId']
