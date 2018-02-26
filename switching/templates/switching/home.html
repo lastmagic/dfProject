@@ -11,28 +11,33 @@
 
     <div class='page_form'>
       <p>
-        <form class="" action="index.html" method="get">
-          <select class="server_name" name="서버명" id = "server">
-            <option value="anton">안톤</option>
-            <option value="bakal">바칼</option>
-            <option value="cain">카인</option>
-            <option value="casillas">카시야스</option>
-            <option value="diregie">디레지에</option>
-            <option value="hilder">힐더</option>
-            <option value="prey">프레이</option>
-            <option value="siroco">시로코</option>
-          </select>
-          <input type="text" name="캐릭터이름" value="캐릭명" id = "chracter">
-        </form>
-        <a href="#">
-          <input type="submit" name="검색" value="검색" onclick="next_page()">
+
+        <select class="server_name" name="서버명" id = "server">
+          <option value="anton">안톤</option>
+          <option value="bakal">바칼</option>
+          <option value="cain">카인</option>
+          <option value="casillas">카시야스</option>
+          <option value="diregie">디레지에</option>
+          <option value="hilder">힐더</option>
+          <option value="prey">프레이</option>
+          <option value="siroco">시로코</option>
+        </select>
+        <input type="text" name="캐릭터이름" value="캐릭명" id = "character">
+
+        <a href="javascript:info_page()" onclick="info_page()">
+          검색
         </a>
+
         <script type="text/javascript">
-          function next_page(){
-            var server=document.getElementById('server').value;
-            var character =document.getElementById('character').value;
+          function info_page(){
+            var serverName = document.getElementById('server').value
+            var characterName = document.getElementById('character').value
+            location.href = "./info/" + serverName + "/" +characterName;
+            console.log(location.href)
           }
         </script>
+
+
       </p>
     </div>
 
