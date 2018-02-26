@@ -11,8 +11,8 @@ def home(request):
 
 def info(request,serverName, characterName):
     # get해서 데이터 가져올 것
-    cid = get_characterId('prey','리막이')
-    user = get_response('equipment', 'prey', cid)
+    cid = get_characterId(serverName, characterName)
+    user = get_response('equipment', serverName, cid)
     return render(request, 'switching/info.html', {'user':user})
 
 def test(request):
