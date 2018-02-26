@@ -11,18 +11,28 @@
 
     <div class='page_form'>
       <p>
-        <select class="server_name" name="서버명">
-          <option value="anton">안톤</option>
-          <option value="bakal">바칼</option>
-          <option value="cain">카인</option>
-          <option value="casillas">카시야스</option>
-          <option value="diregie">디레지에</option>
-          <option value="hilder">힐더</option>
-          <option value="prey">프레이</option>
-          <option value="siroco">시로코</option>
-        </select>
-        <input type="text" name="캐릭터이름" value="캐릭명">
-        <a href="./info"><input type="submit" name="검색" value="검색"></a>
+        <form class="" action="index.html" method="get">
+          <select class="server_name" name="서버명" id = "server">
+            <option value="anton">안톤</option>
+            <option value="bakal">바칼</option>
+            <option value="cain">카인</option>
+            <option value="casillas">카시야스</option>
+            <option value="diregie">디레지에</option>
+            <option value="hilder">힐더</option>
+            <option value="prey">프레이</option>
+            <option value="siroco">시로코</option>
+          </select>
+          <input type="text" name="캐릭터이름" value="캐릭명" id = "chracter">
+        </form>
+        <a href="#">
+          <input type="submit" name="검색" value="검색" onclick="next_page()">
+        </a>
+        <script type="text/javascript">
+          function next_page(){
+            var server=document.getElementById('server').value;
+            var character =document.getElementById('character').value;
+          }
+        </script>
       </p>
     </div>
 

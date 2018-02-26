@@ -8,8 +8,9 @@
   {% if user %}
     <h1>info가 보일 페이지입니다.</h1>
     <ul>
-      <li>serverName: {{user.serverName}}</li>
-      <li>characterName: {{user.characterName}}</li>
+      {{user}}
+      <!-- <li>serverName: {{user.serverName}}</li>
+      <li>characterName: {{user.characterName}}</li> -->
     </ul>
   {% else %}
   캐릭터정보가 존재하지 않습니다.
