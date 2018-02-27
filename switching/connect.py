@@ -6,7 +6,6 @@ import re
 import time
 HOST_CID = 'https://api.neople.co.kr/df/servers/<serverId>/characters/<characterId>/skill/buff/equip/<url>?apikey='
 HOST_CNAME ='https://api.neople.co.kr/df/servers/<serverId>/characters?characterName=<characterName>&limit=<limit>&wordType=<wordType>&apikey='
-BUFF = 'skill/buff/equip/'
 APIKEY = 'USctY4GfphJHwslYdETJ1ILvdkIE9IB9'
 
 
