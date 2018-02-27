@@ -17,6 +17,9 @@ def get_characterId(serverName,characterName):
     api_url = tmpHost + APIKEY
     req = requests.get(api_url)
     data = json.loads(req.text)
+    print(data)
+    if data == {'rows':[]}:
+        return data
     return(data['rows'][0]['characterId'])
 
 def get_response(url, serverName, characterId):

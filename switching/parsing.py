@@ -1,4 +1,4 @@
-HOST = 'https://img-api.neople.co.kr/df/items/'
+HOST_ITEM = 'https://img-api.neople.co.kr/df/items/'
 def extract_item(dataset, name):
     rdata = []
     # print(dataset)
@@ -7,21 +7,20 @@ def extract_item(dataset, name):
             ret = {}
             ret['slotId'] = data['slotId']
             itemId = data['itemId']
-            ret['url'] = HOST + itemId
+            ret['url'] = HOST_ITEM + itemId
             ret['itemName'] = data['itemName']
             rdata.append(ret)
             # print(ret)
         return rdata
     else:
         return None
-
 def extract_creature(dataset, name):
     rdata = []
     if dataset['skill']['buff'][name] !=  None:
         ret = {}
         data = dataset['skill']['buff'][name][0]
         itemId = data['itemId']
-        ret['url'] = HOST + itemId
+        ret['url'] = HOST_ITEM + itemId
         ret['itemName'] = data['itemName']
         rdata.append(ret)
         # print(ret)

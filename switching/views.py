@@ -13,6 +13,8 @@ def home(request):
 def info(request,serverName, characterName):
     # get해서 데이터 가져올 것
     cid = get_characterId(serverName, characterName)
+    if cid == {'rows':[]}:
+        return HttpResponse("캐릭터정보가 존재하지않습니다.")
     equipment = extract_item(get_response('equipment', serverName, cid), 'equipment')
     avatar = extract_item(get_response('avatar', serverName, cid),'avatar')
     creature = extract_creature(get_response('creature', serverName, cid), 'creature')
