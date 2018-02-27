@@ -50,12 +50,9 @@
           <option value="prey">프레이</option>
           <option value="siroco">시로코</option>
         </select>
-        <input type="text" name="캐릭터이름" value="캐릭명" id = "character">
+        <input type="text" name="캐릭터이름" value="캐릭명" id = "character" onkeydown="javascript:info_page()">
 
-        <a href="javascript:info_page()" onclick="info_page()">
-          검색
-        </a>
-
+        <button type="button" name="button" onclick="info_page()">검색</button>
         <script type="text/javascript">
           function info_page(){
             var serverName = document.getElementById('server').value
