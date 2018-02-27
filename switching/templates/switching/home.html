@@ -50,7 +50,7 @@
           <option value="prey">프레이</option>
           <option value="siroco">시로코</option>
         </select>
-        <input type="text" name="캐릭터이름" value="캐릭명" id = "character" onkeydown="check_enter()">
+        <input type="text" name="캐릭터이름" value="캐릭명" id = "character" onkeydown="check_enter()" onfocus="if(this.value =='캐릭명')this.value='';">
 
         <button type="button" name="button" onclick="info_page()">검색</button>
         <script type="text/javascript">
