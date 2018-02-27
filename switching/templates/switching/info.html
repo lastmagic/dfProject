@@ -17,6 +17,11 @@
     .page_header{
       text-align: center;
       margin-right: 120px;
+      margin: auto;
+    }
+    .page_contents{
+      text-align: center;
+      margin: auto;
     }
     #df_logo,#cc_logo{
       width: 200px;
@@ -27,7 +32,7 @@
       height: auto;
     }
     #mid{
-      width: 300px;
+      width: 200%;
     }
     table.type11 {
         border-collapse: separate;
@@ -37,7 +42,7 @@
         margin: 20px 10px;
     }
     table.type11 th {
-        width: 155px;
+        width: 25%;
         padding: 10px;
         font-weight: bold;
         vertical-align: top;
@@ -45,7 +50,7 @@
         background: #ce4869 ;
     }
     table.type11 td {
-        width: 155px;
+        width: 25%;
         padding: 10px;
         vertical-align: top;
         border-bottom: 1px solid #ccc;
@@ -53,48 +58,60 @@
     }
 
     </style>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   </head>
 
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'switching:home' %}">HOME</a>
+        </div>
+    </nav>
     {% if equipment or avatar or creature%}
 
     <div class='page_header'>
       <h1>스위칭 다 보여</h1>
     </div>
-  <table class="type11">
-    <thead>
-    <tr>
-        <th scope="cols">타입</th>
-        <th scope="cols" id="mid">이름</th>
-        <th scope="cols">이미지</th>
-    </tr>
-    </thead>
-    <tbody>
-      {% for equip in equipment %}
-        <tr>
-          <td>{{equip.slotId}}</td>
-          <td>{{equip.itemName}}</td>
-          <td><img src={{equip.url}}></td>
-        </tr>
-      {% endfor %}
+  <div class="page_contents">
+    <table class="type11">
+      <thead>
+      <tr>
+          <th scope="cols">타입</th>
+          <th scope="cols" id="mid">이름</th>
+          <th scope="cols">이미지</th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for equip in equipment %}
+          <tr>
+            <td>{{equip.slotId}}</td>
+            <td>{{equip.itemName}}</td>
+            <td><img src={{equip.url}}></td>
+          </tr>
+        {% endfor %}
 
-      {% for ava in avatar %}
-        <tr>
-          <td>{{ava.slotId}}</td>
-          <td>{{ava.itemName}}</td>
-          <td><img src={{ava.url}}></td>
-        </tr>
-      {% endfor %}
+        {% for ava in avatar %}
+          <tr>
+            <td>{{ava.slotId}}</td>
+            <td>{{ava.itemName}}</td>
+            <td><img src={{ava.url}}></td>
+          </tr>
+        {% endfor %}
 
-      {% for cre in creature %}
-        <tr>
-          <td>creature</td>
-          <td>{{cre.itemName}}</td>
-          <td><img src={{cre.url}}></td>
-        </tr>
-      {% endfor %}
-    </tbody>
-</table>
+        {% for cre in creature %}
+          <tr>
+            <td>creature</td>
+            <td>{{cre.itemName}}</td>
+            <td><img src={{cre.url}}></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+  </div>
+
     {% else %}
     <div class='page_header'>
       <h1>스위칭 정보없음</h1>
