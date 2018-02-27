@@ -2,44 +2,114 @@
 <html>
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114857028-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114857028-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'UA-114857028-1');
-</script>
-
+      gtag('config', 'UA-114857028-1');
+    </script>
     <meta charset="utf-8">
     <title>스위칭 다보여</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <style media="screen">
+    .page_header{
+      text-align: center;
+      margin-right: 120px;
+    }
+    #df_logo,#cc_logo{
+      width: 200px;
+      height: auto;
+    }
+    img{
+      width: 50px;
+      height: auto;
+    }
+    #mid{
+      width: 300px;
+    }
+    table.type11 {
+        border-collapse: separate;
+        border-spacing: 1px;
+        text-align: center;
+        line-height: 1.5;
+        margin: 20px 10px;
+    }
+    table.type11 th {
+        width: 155px;
+        padding: 10px;
+        font-weight: bold;
+        vertical-align: top;
+        color: #fff;
+        background: #ce4869 ;
+    }
+    table.type11 td {
+        width: 155px;
+        padding: 10px;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+        background: #eee;
+    }
+
+    </style>
   </head>
+
   <body>
     {% if equipment or avatar or creature%}
-    <h1>스위칭 다 보여</h1>
-    <ul>
+
+    <div class='page_header'>
+      <h1>스위칭 다 보여</h1>
+    </div>
+  <table class="type11">
+    <thead>
+    <tr>
+        <th scope="cols">타입</th>
+        <th scope="cols" id="mid">이름</th>
+        <th scope="cols">이미지</th>
+    </tr>
+    </thead>
+    <tbody>
       {% for equip in equipment %}
-        {{equip.slotId}}: {{equip.itemName}}
-        <img src={{equip.url}}>
-        <br>
+        <tr>
+          <td>{{equip.slotId}}</td>
+          <td>{{equip.itemName}}</td>
+          <td><img src={{equip.url}}></td>
+        </tr>
       {% endfor %}
 
       {% for ava in avatar %}
-        {{ava.slotId}}: {{ava.itemName}}
-        <img src={{ava.url}}>
-        <br>
+        <tr>
+          <td>{{ava.slotId}}</td>
+          <td>{{ava.itemName}}</td>
+          <td><img src={{ava.url}}></td>
+        </tr>
       {% endfor %}
 
-      <br>
       {% for cre in creature %}
-        {{cre.itemName}}
-        <img src={{cre.url}}>
-        <br>
+        <tr>
+          <td>creature</td>
+          <td>{{cre.itemName}}</td>
+          <td><img src={{cre.url}}></td>
+        </tr>
       {% endfor %}
-    </ul>
+    </tbody>
+</table>
     {% else %}
-      스위칭정보없음
+    <div class='page_header'>
+      <h1>스위칭 정보없음</h1>
+    </div>
     {% endif %}
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="http://www.switchingbox.site" property="cc:attributionName" rel="cc:attributionURL">프레이-리막이 18/02/27</a>에 의해 작성된 <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type">스위칭다보여</span>은(는) <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">크리에이티브 커먼즈 저작자표시-비영리 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.
+
+    <div class="page_info">
+      <p>
+        <a href="http://developers.neople.co.kr" target="_blank"><img id = "df_logo" src="https://developers.neople.co.kr/img/logo_t1.png" alt="Neople 오픈 API" / ></a>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" id= "cc_logo"/></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="http://www.switchingbox.site" property="cc:attributionName" rel="cc:attributionURL">프레이-리막이 18/02/27</a>에 의해 작성된 <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type">
+          스위칭다보여</span>은(는) <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">크리에이티브 커먼즈 저작자표시-비영리 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.
+      </p>
+      <p>
+
+      </p>
+    </div>
   </body>
 </html>
