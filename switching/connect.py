@@ -20,6 +20,8 @@ def get_characterId(serverName,characterName):
     print(data)
     if data == {'rows':[]}:
         return data
+    elif data == {'error': {'code': 'API980', 'status': 503, 'message': 'SYSTEM_INSPECT'}}:
+        return data
     return(data['rows'][0]['characterId'])
 
 def get_response(url, serverName, characterId):

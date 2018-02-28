@@ -15,6 +15,8 @@ def info(request,serverName, characterName):
     cid = get_characterId(serverName, characterName)
     if cid == {'rows':[]}:
         return render(request, 'switching/except.html', {})
+    elif cid == {'error': {'code': 'API980', 'status': 503, 'message': 'SYSTEM_INSPECT'}}:
+        return render(request, 'switching/test.html', {})
     equipment = extract_item(get_response('equipment', serverName, cid), 'equipment')
     avatar = extract_item(get_response('avatar', serverName, cid),'avatar')
     creature = extract_creature(get_response('creature', serverName, cid), 'creature')
