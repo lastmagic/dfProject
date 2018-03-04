@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,14 +14,7 @@
 
     <meta charset="utf-8">
     <title>스위칭 다 보여</title>
-    <style media="screen">
-    *{
-      text-align: center;
-    }
-    #logo{
-      width: 200px;
-      height: auto;
-    }
+    <link rel="stylesheet" href="{% static "css/default.css" %}" type="text/css">
     </style>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
