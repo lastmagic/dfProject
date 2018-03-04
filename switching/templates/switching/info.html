@@ -1,94 +1,57 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114857028-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+{% extends "switching/layout.html" %}
+{% block title %}
+{% endblock%}
 
-      gtag('config', 'UA-114857028-1');
-    </script>
-    <meta charset="utf-8">
-    <title>스위칭 다보여</title>
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link rel="stylesheet" href="{% static "css/info.css" %}" type="text/css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link rel ="shortcut icon" type = "image/x-icon" href="https://developers.neople.co.kr/img/logo_t1.png" />
-  </head>
+{% block content %}
+{% if equipment or avatar or creature%}
 
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{% url 'switching:home' %}">HOME</a>
-        </div>
-    </nav>
-    {% if equipment or avatar or creature%}
-
-    <div class='page_header'>
-      <h1>스위칭 다 보여</h1>
-    </div>
-  <div class="page_contents">
-    {% for skill in skillInfo %}
-      <h3>스위칭스킬:{{skill.skillName}}</h3>
-    {% endfor %}
-    <table class="type11">
-      <thead>
+<div class='page_header'>
+  <h1>스위칭 다 보여</h1>
+</div>
+<div class="page_contents">
+{% for skill in skillInfo %}
+  <h3>스위칭스킬:{{skill.skillName}}</h3>
+{% endfor %}
+<table class="type11">
+  <thead>
+  <tr>
+      <th scope="cols">타입</th>
+      <th scope="cols" id="mid">이름</th>
+      <th scope="cols">이미지</th>
+  </tr>
+  </thead>
+  <tbody>
+    {% for equip in equipment %}
       <tr>
-          <th scope="cols">타입</th>
-          <th scope="cols" id="mid">이름</th>
-          <th scope="cols">이미지</th>
+        <td>{{equip.slotId}}</td>
+        <td>{{equip.itemName}}</td>
+        <td><img src={{equip.url}}></td>
       </tr>
-      </thead>
-      <tbody>
-        {% for equip in equipment %}
-          <tr>
-            <td>{{equip.slotId}}</td>
-            <td>{{equip.itemName}}</td>
-            <td><img src={{equip.url}}></td>
-          </tr>
-        {% endfor %}
+    {% endfor %}
 
-        {% for ava in avatar %}
-          <tr>
-            <td>{{ava.slotId}}</td>
-            <td>{{ava.itemName}}</td>
-            <td><img src={{ava.url}}></td>
-          </tr>
-        {% endfor %}
+    {% for ava in avatar %}
+      <tr>
+        <td>{{ava.slotId}}</td>
+        <td>{{ava.itemName}}</td>
+        <td><img src={{ava.url}}></td>
+      </tr>
+    {% endfor %}
 
-        {% for cre in creature %}
-          <tr>
-            <td>creature</td>
-            <td>{{cre.itemName}}</td>
-            <td><img src={{cre.url}}></td>
-          </tr>
-        {% endfor %}
-      </tbody>
-  </table>
-  </div>
+    {% for cre in creature %}
+      <tr>
+        <td>creature</td>
+        <td>{{cre.itemName}}</td>
+        <td><img src={{cre.url}}></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
 
-    {% else %}
-    <div class='page_header'>
-      <h1>스위칭 정보가 없습니다</h1>
-      <h1>좌측상단에 Home버튼을 이용해 돌아간 후 다시입력하세요</h1>
-    </div>
-    {% endif %}
-
-    <div class="page_info">
-      <p>
-        <a href="http://developers.neople.co.kr" target="_blank"><img id = "df_logo" src="https://developers.neople.co.kr/img/logo_t1.png" alt="Neople 오픈 API" / ></a>
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" id= "cc_logo"/></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="http://www.switchingbox.site" property="cc:attributionName" rel="cc:attributionURL">프레이-리막이 18/02/27</a>에 의해 작성된 <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type">
-          스위칭다보여</span>은(는) <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">크리에이티브 커먼즈 저작자표시-비영리 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.
-      </p>
-      <p>
-
-      </p>
-    </div>
-  </body>
-</html>
+{% else %}
+<div class='page_header'>
+  <h1>스위칭 정보가 없습니다</h1>
+  <h1>좌측상단에 Home버튼을 이용해 돌아간 후 다시입력하세요</h1>
+</div>
+{% endif %}
+{% endblock %}
