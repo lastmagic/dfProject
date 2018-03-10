@@ -20,7 +20,7 @@
       <option value="prey">프레이</option>
       <option value="siroco">시로코</option>
     </select>
-    <input type="text" name="캐릭터이름" id = "character" onkeydown="check_enter()" placeholder="캐릭명" autofocus>
+    <input type="text" name="캐릭터이름"  id = "character" onkeydown="check_enter()" placeholder="캐릭명" autofocus>
 
     <button type="button" name="button" onclick="info_page()">검색</button>
     <script type="text/javascript">
@@ -29,6 +29,13 @@
         var characterName = document.getElementById('character').value
         location.href = "./info/" + serverName + "/" +characterName;
         console.log(location.href)
+      }
+    </script>
+    <script type="text/javascript">
+      function check_enter(){
+        if(event.keyCode==13){
+          info_page()
+        }
       }
     </script>
   </p>
