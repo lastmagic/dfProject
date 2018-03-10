@@ -26,3 +26,6 @@ def info(request,serverName, characterName):
 
 def test(request):
     return render(request, 'switching/test.html', {});
+
+def not_found(request):
+    return render(request, 'switching/404.html', {});
